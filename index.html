@@ -2,58 +2,111 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dusk Moon Studio</title>
 <meta name="description" content="Dusk Moon Studio makes small, calm one-touch games. Home of Moonrope and Felt Flight.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%234D7BFB%27/%3E%3Ccircle cx=%2733%27 cy=%2731%27 r=%2710.5%27 fill=%27none%27 stroke=%27%23FFD23F%27 stroke-width=%275%27/%3E%3Ccircle cx=%2762%27 cy=%2770%27 r=%2715.5%27 fill=%27%23F0563A%27/%3E%3C/svg%3E">
+<link rel="canonical" href="https://duskmoonstudio.com/">
+<meta property="og:title" content="Dusk Moon Studio">
+<meta property="og:description" content="Small, calm one-touch games. Home of Moonrope and Felt Flight.">
+<meta property="og:image" content="https://duskmoonstudio.com/felt-flight/calm.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='96' fill='%233a2a78'/%3E%3Cpath transform='translate(0,-12)' d='M103.45 44.13A46 46 0 1 0 142.75 106.99A38 38 0 1 1 103.45 44.13Z' fill='%23fff3d6'/%3E%3Cpath d='M0 150Q60 120 120 142T200 136V200H0Z' fill='%2317123a'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-  :root { --ink:#0B1426; --ivory:#F3E6CF; --gold:#F2B544; --muted:#9FB2CC; }
+  :root { --night:#17123a; --violet:#3a2a78; --twilight:#6a3f9e; --horizon:#f2994a; --gold:#f6c453; --cream:#fff3d6; --muted:#c3baea; }
   * { box-sizing: border-box; }
-  body { margin:0; min-height:100vh; background: radial-gradient(120% 80% at 50% 0%, #1E3350 0%, var(--ink) 60%); color:var(--ivory);
-         font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
-  main { max-width: 640px; margin: 0 auto; padding: 56px 20px 40px; }
-  .brand { letter-spacing:.2em; text-transform:uppercase; font-size:12px; color:var(--gold); margin:0 0 28px; }
-  .game { display:flex; gap:18px; align-items:center; margin-bottom:18px; }
-  .game svg, .game img { flex:none; border-radius:20px; box-shadow:0 8px 30px rgba(0,0,0,.4); }
-  h1 { margin:0; font-size:34px; line-height:1.1; }
-  .tag { margin:4px 0 0; color:var(--muted); }
-  p { margin: 0 0 14px; }
-  ul { padding-left: 20px; margin: 0 0 18px; }
+  html { scroll-behavior: smooth; }
+  body { margin:0; background: var(--night); color: var(--cream);
+         font: 17px/1.65 "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif; }
   a { color: var(--gold); }
-  .soon { display:inline-block; padding:10px 16px; border-radius:10px; background:var(--gold); color:var(--ink); font-weight:600; text-decoration:none; margin: 6px 0 22px; }
-  .divider { border:0; border-top:1px solid rgba(243,230,207,.12); margin:30px 0 34px; }
-  .more { margin-right:14px; }
-  footer { margin-top:40px; font-size:13px; color:var(--muted); border-top:1px solid rgba(243,230,207,.12); padding-top:16px; }
+  a:focus-visible, .soon:focus-visible { outline: 3px solid var(--cream); outline-offset: 3px; border-radius: 6px; }
+  .hero { position: relative; text-align: center; padding: 56px 20px 150px;
+          background: linear-gradient(180deg, #241a58 0%, #4b2f85 55%, #c96a5a 88%, #f2994a 100%); overflow: hidden; }
+  .hero .emblem { display:block; margin: 0 auto 14px; width: 132px; height: 132px; filter: drop-shadow(0 10px 30px rgba(0,0,0,.35)); }
+  .hero h1 { margin: 0; font: 600 clamp(40px, 9vw, 64px)/1.05 "Fredoka", "Nunito", system-ui, sans-serif; letter-spacing: -0.01em; }
+  .hero .studio { margin: 6px 0 0; font: 500 15px/1 "Fredoka", "Nunito", system-ui, sans-serif; letter-spacing: .55em; padding-left: .55em; color: var(--gold); }
+  .hero .line { margin: 22px auto 0; max-width: 30em; font-size: 19px; color: var(--cream); }
+  .hills { position:absolute; left:0; right:0; bottom:-1px; width:100%; height:110px; display:block; }
+  .star { position:absolute; width:3px; height:3px; border-radius:50%; background: var(--cream); opacity:.8; }
+  @media (prefers-reduced-motion: no-preference) { .star { animation: tw 3.5s ease-in-out infinite; } .star:nth-child(2n){ animation-delay:1.2s } .star:nth-child(3n){ animation-delay:2.2s } }
+  @keyframes tw { 50% { opacity:.25; } }
+  main { max-width: 760px; margin: 0 auto; padding: 8px 20px 24px; }
+  h2 { font: 600 28px/1.15 "Fredoka", "Nunito", system-ui, sans-serif; margin: 0; }
+  .game { display:flex; gap:20px; align-items:center; margin-bottom:16px; }
+  .game svg, .game img { flex:none; border-radius:22px; box-shadow:0 8px 30px rgba(0,0,0,.4); }
+  .tag { margin:4px 0 0; color: var(--muted); }
+  .card { background: rgba(255,243,214,.05); border: 1px solid rgba(255,243,214,.14); border-radius: 22px; padding: 26px 26px 20px; margin: 0 0 22px; }
+  p { margin: 0 0 14px; }
+  ul { padding-left: 20px; margin: 0 0 16px; }
+  li { margin-bottom: 4px; }
+  .soon { display:inline-block; padding:10px 18px; border-radius:12px; background: var(--gold); color: var(--night); font-weight:800; text-decoration:none; margin: 4px 0 8px; }
+  .more { margin-right:16px; display:inline-block; }
+  .about h2 { margin-bottom: 10px; }
+  footer { max-width: 760px; margin: 12px auto 0; padding: 18px 20px 40px; font-size: 14px; color: var(--muted); border-top: 1px solid rgba(255,243,214,.14); }
+  footer a { color: var(--muted); }
+  @media (max-width: 520px) { .game { flex-direction: column; align-items: flex-start; } .card { padding: 22px 18px 16px; } }
 </style>
 </head><body>
+
+<header class="hero">
+  <span class="star" style="left:9%;top:18%"></span><span class="star" style="left:22%;top:8%"></span><span class="star" style="left:34%;top:30%"></span>
+  <span class="star" style="left:66%;top:12%"></span><span class="star" style="left:80%;top:26%"></span><span class="star" style="left:92%;top:10%"></span>
+  <svg class="emblem" viewBox="0 0 200 200" role="img" aria-label="Dusk Moon Studio emblem: a crescent moon rising behind hills">
+    <defs>
+      <linearGradient id="skyH" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#241a58"/><stop offset="0.55" stop-color="#6a3f9e"/><stop offset="1" stop-color="#f2994a"/></linearGradient>
+      <clipPath id="clipH"><circle cx="100" cy="100" r="96"/></clipPath>
+    </defs>
+    <g clip-path="url(#clipH)">
+      <rect width="200" height="200" fill="url(#skyH)"/>
+      <circle cx="40" cy="42" r="1.8" fill="#fff3d6"/><circle cx="156" cy="30" r="1.4" fill="#fff3d6"/><circle cx="170" cy="70" r="1.8" fill="#fff3d6"/><circle cx="24" cy="86" r="1.3" fill="#fff3d6"/>
+      <g transform="translate(0,-12)"><path d="M103.45 44.13 A46 46 0 1 0 142.75 106.99 A38 38 0 1 1 103.45 44.13 Z" fill="#fff3d6"/></g>
+      <path d="M108 21 L110.2 27.8 L117 30 L110.2 32.2 L108 39 L105.8 32.2 L99 30 L105.8 27.8 Z" fill="#f6c453"/>
+      <path d="M0 142 Q48 112 98 132 T200 126 V200 H0 Z" fill="#3a2a78"/>
+      <path d="M0 164 Q60 138 120 156 T200 150 V200 H0 Z" fill="#17123a"/>
+    </g>
+    <circle cx="100" cy="100" r="96" fill="none" stroke="#fff3d6" stroke-opacity="0.35" stroke-width="3"/>
+  </svg>
+  <h1>Dusk Moon</h1>
+  <p class="studio">STUDIO</p>
+  <p class="line">Small, calm games you play with one finger.</p>
+  <svg class="hills" viewBox="0 0 1200 110" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 62 Q180 10 400 54 T820 42 T1200 56 V110 H0 Z" fill="#2b1d66"/>
+    <path d="M0 88 Q260 52 520 82 T1200 76 V110 H0 Z" fill="#17123a"/>
+  </svg>
+</header>
+
 <main>
-  <p class="brand">Dusk Moon Studio</p>
-  <div class="game">
-    <svg viewBox="0 0 100 100" width="88" height="88" role="img" aria-label="Moonrope app icon"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7B2FF7"/><stop offset="1" stop-color="#1FC8FF"/></linearGradient><radialGradient id="b" cx=".35" cy=".35" r=".7"><stop offset="0" stop-color="#FF6A45"/><stop offset="1" stop-color="#D22F14"/></radialGradient></defs><rect width="100" height="100" rx="22" fill="url(#g)"/><circle cx="33" cy="31" r="18" fill="#FFF3C4" opacity=".25"/><line x1="40.5" y1="40.5" x2="62" y2="70" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/><circle cx="33" cy="31" r="10.5" fill="none" stroke="#FFD23F" stroke-width="5"/><circle cx="62" cy="70" r="15.5" fill="url(#b)"/><circle cx="56" cy="64" r="4" fill="#FFEEE6"/></svg>
-    <div><h1>Moonrope</h1><p class="tag">One finger. One rope. One night to sunrise.</p></div>
-  </div>
-  <p>Hold to catch a ring, let go to fly, and catch the next one before you fall. Swing through seventeen skies from dusk to sunrise, as rings start to drift, hide and crumble.</p>
-  <ul>
-    <li><b>Classic</b>: climb to ring 100, then catch the tip of the moon</li>
-    <li><b>Endless</b>: dusk to sunrise at ring 400</li>
-    <li><b>Sprint</b>: race today's course to ring 50</li>
-    <li><b>Calm</b>: no falls, just swinging and music</li>
-  </ul>
-  <p>New players meet <b>Lumi</b>, a little crescent moon who shows you how to swing on your first run. Along the way you travel through eight landscapes, from meadows and pine woods to a village, snowy mountains, a sea of clouds and the Kerala backwaters, each with its own ground to land on. Watch for fireflies, owls, shooting stars and rare sights like the sky whale.</p>
-  <span class="soon">Coming soon to Google Play</span>
+  <section class="card" id="moonrope" aria-labelledby="moonrope-h">
+    <div class="game">
+      <svg viewBox="0 0 100 100" width="88" height="88" role="img" aria-label="Moonrope app icon"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7B2FF7"/><stop offset="1" stop-color="#1FC8FF"/></linearGradient><radialGradient id="b" cx=".35" cy=".35" r=".7"><stop offset="0" stop-color="#FF6A45"/><stop offset="1" stop-color="#D22F14"/></radialGradient></defs><rect width="100" height="100" rx="22" fill="url(#g)"/><circle cx="33" cy="31" r="18" fill="#FFF3C4" opacity=".25"/><line x1="40.5" y1="40.5" x2="62" y2="70" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/><circle cx="33" cy="31" r="10.5" fill="none" stroke="#FFD23F" stroke-width="5"/><circle cx="62" cy="70" r="15.5" fill="url(#b)"/><circle cx="56" cy="64" r="4" fill="#FFEEE6"/></svg>
+      <div><h2 id="moonrope-h">Moonrope</h2><p class="tag">One finger. One rope. One night to sunrise.</p></div>
+    </div>
+    <p>Hold to catch a ring, let go to fly, and catch the next one before you fall. Swing through seventeen skies from dusk to sunrise, as rings start to drift, hide and crumble.</p>
+    <ul>
+      <li><b>Classic</b>: climb to ring 100, then catch the tip of the moon</li>
+      <li><b>Endless</b>: dusk to sunrise at ring 400</li>
+      <li><b>Sprint</b>: race today's course to ring 50</li>
+      <li><b>Calm</b>: no falls, just swinging and music</li>
+    </ul>
+    <p>New players meet <b>Lumi</b>, a little crescent moon who shows you how to swing on your first run. Along the way you travel through eight landscapes, from meadows and pine woods to a village, snowy mountains, a sea of clouds and the Kerala backwaters, each with its own ground to land on. Watch for fireflies, owls, shooting stars and rare sights like the sky whale.</p>
+    <span class="soon">Coming soon to Google Play</span>
+    <p><a class="more" href="moonrope/">About Moonrope</a><a class="more" href="privacy-policy.html">Moonrope privacy policy</a><a class="more" href="moonrope/terms.html">Moonrope terms of use</a></p>
+  </section>
 
-  <hr class="divider">
+  <section class="card" id="felt-flight" aria-labelledby="ff-h">
+    <div class="game">
+      <img src="felt-flight/icon.webp" width="88" height="88" alt="Felt Flight app icon">
+      <div><h2 id="ff-h">Felt Flight</h2><p class="tag">A paper plane over a stitched felt world.</p></div>
+    </div>
+    <p>Hold to climb, let go to glide. Sew a trail of thread across the sky, collect buttons, bank them at pincushions and ride the wind through five levels of weather. Made for all ages.</p>
+    <span class="soon">Coming soon to Google Play</span>
+    <p><a class="more" href="felt-flight/">About Felt Flight</a><a class="more" href="felt-flight/privacy-policy.html">Felt Flight privacy policy</a><a class="more" href="felt-flight/terms.html">Felt Flight terms of use</a></p>
+  </section>
 
-  <div class="game">
-    <img src="felt-flight/icon.webp" width="88" height="88" alt="Felt Flight app icon">
-    <div><h1>Felt Flight</h1><p class="tag">A paper plane over a stitched felt world.</p></div>
-  </div>
-  <p>Hold to climb, let go to glide. Sew a trail of thread across the sky, collect buttons, bank them at pincushions and ride the wind through five levels of weather. Made for all ages.</p>
-  <span class="soon">Coming soon to Google Play</span>
-  <p><a class="more" href="felt-flight/">About Felt Flight</a><a class="more" href="felt-flight/privacy-policy.html">Felt Flight privacy policy</a></p>
-
-  <hr class="divider">
-
-  <p>Dusk Moon Studio is Arun, an aerospace engineering researcher making small games from Kerala, India.</p>
-  <p>Questions, bugs or ideas: <a href="mailto:arunvt.dev@gmail.com">arunvt.dev@gmail.com</a></p>
-
-  <footer><a href="privacy-policy.html">Moonrope privacy policy</a> · <a href="felt-flight/privacy-policy.html">Felt Flight privacy policy</a> · © 2026 Dusk Moon Studio</footer>
+  <section class="card about" id="about" aria-labelledby="about-h">
+    <h2 id="about-h">About the studio</h2>
+    <p>Dusk Moon Studio is Arun, an aerospace engineering researcher making small games from Kerala, India.</p>
+    <p>Questions, bugs or ideas: <a href="mailto:arunvt.dev@gmail.com">arunvt.dev@gmail.com</a></p>
+  </section>
 </main>
+
+<footer><a href="privacy-policy.html">Moonrope privacy policy</a> · <a href="moonrope/terms.html">Moonrope terms</a> · <a href="felt-flight/privacy-policy.html">Felt Flight privacy policy</a> · <a href="felt-flight/terms.html">Felt Flight terms</a> · © 2026 Dusk Moon Studio</footer>
 </body></html>
