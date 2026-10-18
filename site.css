@@ -45,6 +45,9 @@ main.wrap { max-width: 960px; margin: 0 auto; padding: 28px 20px 24px; }
         background: linear-gradient(180deg, #2b1d66, #4b2f85 60%, #c96a5a);
         display:flex; align-items:flex-end; justify-content:center; padding: 12px; text-align:center;
         font-size: 13px; font-weight: 700; color: var(--cream); opacity: .9; }
+.shots a { flex: 0 0 auto; display: block; line-height: 0; border-radius: 18px; scroll-snap-align: start; cursor: zoom-in; }
+.shots a:hover .shot { opacity: 1; filter: brightness(1.06); }
+.shots a:focus-visible { outline: 3px solid var(--cream); outline-offset: 3px; }
 img.shot { object-fit: cover; padding: 0; display:block; height:auto; }
 .shot.ff { background: linear-gradient(180deg, #bfe3f2, #e9f4f7 60%, #f2d7a0); color: #3b3b4f; }
 img.shot.ff { width: 300px; aspect-ratio: 13 / 6; }
