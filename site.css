@@ -47,6 +47,7 @@ main.wrap { max-width: 960px; margin: 0 auto; padding: 28px 20px 24px; }
         font-size: 13px; font-weight: 700; color: var(--cream); opacity: .9; }
 img.shot { object-fit: cover; padding: 0; display:block; height:auto; }
 .shot.ff { background: linear-gradient(180deg, #bfe3f2, #e9f4f7 60%, #f2d7a0); color: #3b3b4f; }
+img.shot.ff { width: 300px; aspect-ratio: 13 / 6; }
 
 /* grids */
 .grid2 { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 22px; }
@@ -68,4 +69,4 @@ footer a { color: var(--muted); }
 @media (prefers-reduced-motion: no-preference) { .star { animation: tw 3.5s ease-in-out infinite; } .star:nth-child(2n){ animation-delay:1.2s } .star:nth-child(3n){ animation-delay:2.2s } }
 @keyframes tw { 50% { opacity:.25; } }
 @media (max-width: 700px) { .grid2 { grid-template-columns: 1fr; } .grid3 { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 520px) { .logo-tile { padding: 16px; min-height: 0; } .game { flex-direction: column; align-items: flex-start; } .card { padding: 22px 18px 16px; } .site-nav nav a { margin-left: 12px; } .shot { width: 128px; } }
+@media (max-width: 520px) { .logo-tile { padding: 16px; min-height: 0; } .game { flex-direction: column; align-items: flex-start; } .card { padding: 22px 18px 16px; } .site-nav nav a { margin-left: 12px; } .shot { width: 128px; } img.shot.ff { width: 250px; } }
