@@ -84,13 +84,21 @@ footer a { color: var(--muted); }
 img.shot.vb { width: 300px; aspect-ratio: 2 / 1; object-fit: cover; }
 @media (max-width: 520px) { img.shot.vb { width: 250px; } }
 
-/* studio story timeline (home) */
-.tline { list-style: none; margin: 18px 0 6px; padding: 0 0 0 30px; position: relative; }
-.tline:before { content: ""; position: absolute; left: 8px; top: 6px; bottom: 6px; width: 3px; border-radius: 3px; background: linear-gradient(var(--gold), var(--horizon), var(--twilight)); }
-.tline li { position: relative; margin: 0 0 18px; padding: 12px 16px; background: var(--violet); border-radius: 16px; }
-.tline li:before { content: ""; position: absolute; left: -29px; top: 16px; width: 14px; height: 14px; border-radius: 50%; background: var(--night); border: 3px solid var(--gold); box-shadow: 0 0 10px rgba(246,196,83,.5); }
+/* studio story timeline (story page) */
+.tline { list-style: none; margin: 8px 0 0; padding: 0; position: relative; }
+.tline:before { content: ""; position: absolute; left: 50%; top: 4px; bottom: 4px; width: 3px; transform: translateX(-50%); border-radius: 3px; background: linear-gradient(var(--gold), var(--horizon), var(--twilight)); }
+.tline li { position: relative; width: 50%; margin: 0; padding: 0 34px 22px 0; }
+.tline li:nth-child(even) { margin-left: 50%; padding: 0 0 22px 34px; }
+.tline li:before { content: ""; position: absolute; top: 16px; right: -8px; width: 16px; height: 16px; border-radius: 50%; background: var(--night); border: 3px solid var(--gold); box-shadow: 0 0 10px rgba(246,196,83,.5); }
+.tline li:nth-child(even):before { right: auto; left: -8px; }
 .tline li.now:before { background: var(--gold); }
+.tline .box { background: var(--violet); border-radius: 16px; padding: 12px 16px; }
 .tline .when { display: block; font: 600 13px/1.3 "Fredoka", "Nunito", sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--gold); }
 .tline h3 { margin: 2px 0 4px; font-size: 19px; color: var(--cream); }
 .tline p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.5; }
 .tline .btn { margin-top: 10px; }
+@media (max-width: 640px) {
+  .tline:before { left: 8px; transform: none; }
+  .tline li, .tline li:nth-child(even) { width: 100%; margin-left: 0; padding: 0 0 18px 34px; }
+  .tline li:before, .tline li:nth-child(even):before { left: 0; right: auto; }
+}
