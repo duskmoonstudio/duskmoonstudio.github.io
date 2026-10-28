@@ -1,0 +1,55 @@
+/* Dusk Moon Studio – shared rich-page styles (dm.css). Loaded after each page's own CSS. */
+:root{--night:#17123a;--violet:#3a2a78;--twilight:#6a3f9e;--horizon:#f2994a;--gold:#f6c453;--cream:#fff3d6;--muted:#c3baea;--glass:rgba(255,243,214,.06);--line:rgba(255,243,214,.16)}
+.dm-reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.dm-reveal.in{opacity:1;transform:none}
+.dm-reveal[data-d="1"]{transition-delay:.1s}.dm-reveal[data-d="2"]{transition-delay:.2s}.dm-reveal[data-d="3"]{transition-delay:.3s}
+@media (prefers-reduced-motion:reduce){.dm-reveal{opacity:1;transform:none;transition:none}}
+.no-js .dm-reveal{opacity:1;transform:none}
+
+/* live stats strip */
+.dm-stats{position:relative;margin:0 0 22px;padding:20px 22px 16px;border-radius:22px;border:1px solid var(--line);
+  background:linear-gradient(135deg,#4b2f85,#241a58);color:#fff3d6;overflow:hidden}
+.dm-stats[hidden]{display:none}
+.dm-stats h2{margin:0 0 12px;font:600 15px/1 "Fredoka","Nunito",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.dm-live{display:inline-flex;align-items:center;gap:6px;font:700 12px/1 "Nunito",sans-serif;letter-spacing:.06em;color:var(--cream);background:rgba(246,196,83,.16);border:1px solid rgba(246,196,83,.4);padding:5px 10px;border-radius:999px;text-transform:none}
+.dm-live i{width:8px;height:8px;border-radius:50%;background:#59f08c;box-shadow:0 0 0 0 rgba(89,240,140,.7);animation:dmpulse 1.8s infinite}
+.dm-live.off i{background:var(--muted);animation:none;box-shadow:none}
+@keyframes dmpulse{70%{box-shadow:0 0 0 9px rgba(89,240,140,0)}100%{box-shadow:0 0 0 0 rgba(89,240,140,0)}}
+.dm-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px}
+.dm-tile{padding:14px 14px 12px;border-radius:16px;background:var(--glass);border:1px solid var(--line)}
+.dm-tile b{display:block;font:600 clamp(26px,5vw,34px)/1.05 "Fredoka","Nunito",sans-serif;color:var(--cream);font-variant-numeric:tabular-nums}
+.dm-tile span{display:block;margin-top:4px;font-size:13px;font-weight:700;color:var(--muted)}
+.dm-tile[hidden]{display:none}
+.dm-note{margin:10px 0 0;font-size:12.5px;color:var(--muted)}
+
+/* shared lightbox */
+.dm-lb{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;background:rgba(10,7,30,.92);padding:20px;cursor:zoom-out}
+.dm-lb.on{display:flex}
+.dm-lb img{max-width:100%;max-height:92vh;border-radius:16px;box-shadow:0 20px 80px rgba(0,0,0,.6)}
+.dm-lb button{position:absolute;top:14px;right:18px;background:none;border:0;color:var(--cream);font-size:36px;cursor:pointer;line-height:1}
+body{overflow-x:clip}
+.site-nav nav{display:flex;flex-wrap:wrap;gap:2px 14px}
+.site-nav nav a{margin-left:0!important}
+
+/* scenes + sound button */
+.dm-scene-cap{margin:8px 2px 0;font-size:14px;color:var(--muted)}
+.dm-snd{position:fixed;right:16px;bottom:16px;z-index:60;display:flex;align-items:center;gap:8px;padding:11px 16px 11px 13px;border-radius:999px;cursor:pointer;
+  font:800 14px/1 "Nunito",sans-serif;color:var(--cream);background:rgba(36,26,88,.92);border:2px solid rgba(246,196,83,.6);backdrop-filter:blur(8px);box-shadow:0 8px 28px rgba(0,0,0,.4);transition:transform .15s,background .2s}
+.dm-snd:hover{transform:translateY(-2px)}.dm-snd.on{background:var(--gold);color:var(--night);border-color:var(--gold)}
+.dm-snd:focus-visible{outline:3px solid var(--cream);outline-offset:3px}
+@media (max-width:480px){.dm-snd span{display:none}.dm-snd{padding:12px}}
+
+/* inner-page hero: stars + hills */
+.page-hero{position:relative;overflow:hidden}
+.page-hero>*{position:relative}.page-hero>canvas.dm-stars{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.card{transition:transform .25s,border-color .25s,box-shadow .25s}
+.card:hover{border-color:rgba(246,196,83,.4)}
+.swatch{cursor:copy;transition:transform .15s}.swatch:hover{transform:translateY(-3px)}
+.dm-toast{position:fixed;left:50%;bottom:78px;transform:translate(-50%,20px);opacity:0;background:var(--gold);color:var(--night);font-weight:800;padding:10px 16px;border-radius:12px;z-index:90;transition:.25s;pointer-events:none}
+.dm-toast.on{opacity:1;transform:translate(-50%,0)}
+.dm-find{display:block;width:100%;margin:6px 0 14px;padding:12px 16px;border-radius:14px;border:1px solid var(--line);background:rgba(0,0,0,.25);color:var(--cream);font:700 16px "Nunito",sans-serif}
+.dm-find::placeholder{color:var(--muted)}
+
+/* gameplay clips */
+video.vid{display:block;width:100%;height:auto;aspect-ratio:960/442;object-fit:cover;border-radius:18px;border:1px solid var(--line);background:#120d33}
+video.vid.port{aspect-ratio:540/1170;max-height:560px;width:auto;max-width:100%;margin:0 auto}

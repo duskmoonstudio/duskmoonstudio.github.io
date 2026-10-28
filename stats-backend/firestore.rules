@@ -1,0 +1,14 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{db}/documents {
+    // Website can READ the public counters. Nobody can write from a client except via the increment rule below.
+    match /stats/{game} {
+      allow read: if true;
+      // Apps may only add +1 (or +small) to known counter fields; never set arbitrary values.
+      allow update: if request.resource.data.diff(resource.data).affectedKeys()
+                         .hasOnly(['runs','flights','badges','matches','topRing','online'])
+                    && request.resource.data.diff(resource.data).changedKeys().size() <= 2;
+      allow create, delete: if false;
+    }
+  }
+}

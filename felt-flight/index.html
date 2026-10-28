@@ -7,13 +7,14 @@
 <meta property="og:description" content="Fly a paper plane over a stitched felt world. Hold to climb, let go to glide.">
 <meta property="og:image" content="https://duskmoonstudio.github.io/felt-flight/calm.webp">
 <link rel="stylesheet" href="felt.css">
+<link rel="stylesheet" href="../assets/dm.css">
 </head><body>
 <div class="wrap">
 <header class="top"><a href="../">Dusk Moon Studio</a>
 <nav><a href="#parents">For parents</a><a href="#support">Support</a><a href="privacy-policy.html">Privacy</a></nav></header>
 
 <main>
-<section class="patch">
+<section class="patch dm-reveal">
   <div class="hero">
     <img src="icon.webp" alt="Felt Flight app icon: a paper plane over felt hills at sunset">
     <div>
@@ -24,15 +25,18 @@
     </div>
   </div>
 </section>
+<section class="dm-stats dm-reveal" hidden aria-label="Live numbers"><h2>Live numbers <span class="dm-live"><i></i><span>Live</span></span></h2><div class="dm-tiles"><div class="dm-tile" hidden><b data-dm-stat="feltflight.installs">0</b><span>installs</span></div><div class="dm-tile" hidden><b data-dm-stat="feltflight.flights">0</b><span>flights</span></div><div class="dm-tile" hidden><b data-dm-stat="feltflight.badges">0</b><span>badges earned</span></div><div class="dm-tile" hidden><b data-dm-stat="feltflight.rating">0</b><span>rating ★</span></div></div><p class="dm-note">Anonymous totals from the game's own analytics. No personal data.</p></section>
+<section class="patch dm-reveal"><h2>Watch it play</h2><video class="vid" muted loop playsinline preload="none" poster="../felt-flight/shots/calm.webp" data-src="../videos/felt-flight.mp4" aria-label="Gameplay: Felt Flight: glide along the red thread and collect buttons."></video><p class="dm-scene-cap">Gameplay: Felt Flight: glide along the red thread and collect buttons.</p></section>
 
-<section class="patch">
+
+<section class="patch dm-reveal">
   <div class="shots">
     <img src="calm.webp" width="640" height="360" alt="The paper plane sews a red thread trail past felt clouds, a thread spool and rows of buttons">
     <img src="autumn.webp" width="640" height="360" alt="The plane carries buttons towards a red pincushion beside felt houses and trees">
   </div>
 </section>
 
-<section class="patch">
+<section class="patch dm-reveal">
   <h2>How to fly</h2>
   <div class="grid">
     <div><h3>Hold to climb, let go to glide</h3><p>Your plane sews a trail of thread as it climbs. Climbing uses thread, so pick your moment and grab spools to top up.</p></div>
@@ -48,7 +52,7 @@
   <ul class="chips"><li>One-touch</li><li>Plays offline</li><li>No account</li><li>Calm flight mode</li><li>Stickers and badges</li><li>Landscape or portrait</li><li>High or Normal graphics</li><li>Gentle music</li></ul>
 </section>
 
-<section class="patch" id="parents">
+<section class="patch dm-reveal" id="parents">
   <h2>For parents</h2>
   <p>Felt Flight is made for players of all ages, including young children.</p>
   <ul>
@@ -63,7 +67,7 @@
   <p>Full details are in the <a href="privacy-policy.html">privacy policy</a>.</p>
 </section>
 
-<section class="patch" id="support">
+<section class="patch dm-reveal" id="support">
   <h2>Support</h2>
   <p>Found a bug, have an idea, or need help? Write to <a href="mailto:arunvt.dev@gmail.com?subject=Felt%20Flight">arunvt.dev@gmail.com</a>. Please include your phone model if something isn't working.</p>
   <h3>Common questions</h3>
@@ -81,4 +85,6 @@
 
 <footer><a href="privacy-policy.html">Privacy policy</a> · <a href="terms.html">Terms of use</a> · <a href="../">Dusk Moon Studio</a> · © 2026 Dusk Moon Studio</footer>
 </div>
+<script src="../assets/stats-config.js"></script><script src="../assets/stats.js" defer></script><script src="../assets/dm.js" defer></script>
+<script src="../assets/sound.js" defer></script>
 </body></html>
