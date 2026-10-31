@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /stats-backend/
+
+Sitemap: https://duskmoonstudio.com/sitemap.xml
