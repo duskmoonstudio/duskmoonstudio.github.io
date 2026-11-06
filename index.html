@@ -153,15 +153,15 @@
 
   <section class="show arcx flip dm-reveal">
     <div class="txt">
-      <span class="badge soon-b">Closed test &middot; Android</span>
+      <span class="badge soon-b">Production review &middot; Android</span>
       <p class="kick">Turn the lights down. Turn the volume up.</p>
       <h3>Void Brawl</h3>
       <p class="tagl">Six ships. One black hole. One survivor.</p>
       <p>A neon arena brawler from the Dusk Moon Arcade. Host a match on your Wi-Fi and fight with up to five friends, no servers and no accounts. Ages 13+.</p>
       <ul class="chips"><li>Up to 6 players</li><li>Local Wi-Fi</li><li>Black-hole arena</li><li>13+</li></ul>
-      <div class="test" id="vbtest" data-start="2026-10-24" data-days="14">
-        <div class="row"><span id="vbtxt">Closed test in progress</span><span id="vbleft"></span></div>
-        <div class="bar"><i id="vbbar"></i></div>
+      <div class="test" id="vbtest">
+        <div class="row"><span>14-day closed test complete</span><span>Applied for production</span></div>
+        <div class="bar"><i style="width:100%"></i></div>
       </div>
       <div class="store" style="margin-top:14px"><span class="soon">Coming soon to Google Play</span><span class="soon">Coming soon to the App Store</span><a class="btn arc" href="arcade/void-brawl/">About Void Brawl</a></div>
     </div>
@@ -213,15 +213,6 @@
   var moon=document.getElementById('moon');
   addEventListener('pointermove',function(e){mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5;if(!rm)moon.style.transform='translate('+(-mx*26)+'px,'+(-my*16)+'px)';});
   addEventListener('scroll',function(){if(!rm)moon.style.marginTop=(scrollY*.25)+'px';},{passive:true});
-})();
-/* Void Brawl closed-test progress (day 1 = 24 Oct 2026, 14 days) */
-(function(){
-  var el=document.getElementById('vbtest');if(!el)return;
-  var st=new Date(el.dataset.start+'T00:00:00+05:30'),n=+el.dataset.days,d=Math.floor((Date.now()-st)/864e5)+1;
-  var day=Math.min(n,Math.max(1,d)),done=d>n;
-  document.getElementById('vbtxt').textContent=done?'Closed test complete — production next':'Closed test: day '+day+' of '+n;
-  document.getElementById('vbleft').textContent=done?'':(n-day)+' days to go';
-  setTimeout(function(){document.getElementById('vbbar').style.width=Math.min(100,day/n*100)+'%';},300);
 })();
 </script>
 </body></html>
