@@ -102,3 +102,13 @@ img.shot.vb { width: 300px; aspect-ratio: 2 / 1; object-fit: cover; }
   .tline li, .tline li:nth-child(even) { width: 100%; margin-left: 0; padding: 0 0 18px 34px; }
   .tline li:before, .tline li:nth-child(even):before { left: 0; right: auto; }
 }
+
+/* Turntable entry (games, home) */
+.tt-card { background: linear-gradient(135deg, #141c34, #080b16); border: 1px solid rgba(255,179,92,.4); box-shadow: 0 0 28px rgba(255,179,92,.08); }
+.tt-card h2 { color: #dfe5f5; }
+.tt-card .tag { color: #8d97b5; }
+.tt-card .soon { background: transparent; color: #ffb35c; border: 2px solid rgba(255,179,92,.7); padding: 8px 14px; }
+.tt-card a { color: #ffb35c; }
+.tt-card .game img { border-radius: 20px; }
+img.shot.tt { width: 150px; aspect-ratio: 9 / 16; object-fit: cover; }
+@media (max-width: 520px) { img.shot.tt { width: 128px; } }
