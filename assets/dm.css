@@ -49,6 +49,7 @@ body{overflow-x:clip}
 .dm-toast.on{opacity:1;transform:translate(-50%,0)}
 .dm-find{display:block;width:100%;margin:6px 0 14px;padding:12px 16px;border-radius:14px;border:1px solid var(--line);background:rgba(0,0,0,.25);color:var(--cream);font:700 16px "Nunito",sans-serif}
 .dm-find::placeholder{color:var(--muted)}
+.dm-findwrap{margin-bottom:18px}.dm-findwrap .dm-find{margin:0}.dm-none{color:var(--muted);margin:10px 4px 0}
 
 /* gameplay clips */
 video.vid{display:block;width:100%;height:auto;aspect-ratio:960/442;object-fit:cover;border-radius:18px;border:1px solid var(--line);background:#120d33}

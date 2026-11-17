@@ -12,9 +12,16 @@
   var toast=document.createElement("div"); toast.className="dm-toast"; document.body.appendChild(toast);
   document.addEventListener("click",function(e){ var sw=e.target.closest(".swatch"); if(!sw) return; var m=(sw.textContent.match(/#[0-9a-f]{6}/i)||[])[0]; if(!m) return;
     try{ navigator.clipboard.writeText(m); }catch(err){} toast.textContent="Copied "+m; toast.classList.add("on"); setTimeout(function(){toast.classList.remove("on");},1400); });
-  /* quick filter for FAQ-style pages */
-  var det=document.querySelectorAll("main details"); if(det.length>=4){ var f=document.createElement("input"); f.type="search"; f.className="dm-find"; f.placeholder="Search the questions…"; f.setAttribute("aria-label","Search questions");
-    det[0].parentNode.insertBefore(f,det[0]); f.addEventListener("input",function(){ var q=f.value.toLowerCase(); det.forEach(function(d){ var hit=!q||d.textContent.toLowerCase().indexOf(q)>-1; d.style.display=hit?"":"none"; if(q&&hit) d.open=true; }); }); }
+  /* quick filter for FAQ-style pages: one search box above all the question cards */
+  var det=document.querySelectorAll("main details"); if(det.length>=4){ var f=document.createElement("input"); f.type="search"; f.className="dm-find"; f.placeholder="Search all questions\u2026"; f.setAttribute("aria-label","Search all questions");
+    var first=det[0], host=(first.closest&&first.closest("section"))||first.parentNode, box=document.createElement("div"); box.className="narrow dm-findwrap";
+    var none=document.createElement("p"); none.className="dm-none"; none.hidden=true; none.textContent="No questions match. Email me and I will help.";
+    box.appendChild(f); box.appendChild(none); host.parentNode.insertBefore(box,host);
+    var cards=[]; det.forEach(function(d){ var c=d.closest&&d.closest("section"); if(c&&cards.indexOf(c)<0) cards.push(c); });
+    f.addEventListener("input",function(){ var q=f.value.trim().toLowerCase(), any=false;
+      det.forEach(function(d){ var hit=!q||d.textContent.toLowerCase().indexOf(q)>-1; d.style.display=hit?"":"none"; d.open=!!(q&&hit); if(hit) any=true; });
+      cards.forEach(function(c){ var vis=!q||Array.prototype.some.call(c.querySelectorAll("details"),function(d){return d.style.display!=="none";}); c.style.display=vis?"":"none"; });
+      none.hidden=any||!q; }); }
 })();
 /* Dusk Moon Studio – shared interactions: scroll reveal, tilt cards, lightbox. */
 (function(){
